@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import "./App.css";
 import PokemonCard from "./components/PokemonCard";
