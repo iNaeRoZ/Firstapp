@@ -2,36 +2,30 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import "./App.css";
 import PokemonCard from "./components/PokemonCard";
+import NavBar from "./components/NavBar";
 
 function App() {
-  const [pokemonIndex, setPokemonIndex] = useState(0);
-  const handleClick = (event) => {
-    console.log(event.target);
-  };
-
-  const handleClickSuivant = () => {
-    if (pokemonIndex < pokemonList.length - 1) {
-      setPokemonIndex(pokemonIndex + 1);
+  const [pokemonIndex, setpokemonIndex] = useState(0);
+  const handleClickPrecedent = () => {
+    if (pokemonIndex > 0) {
+      setpokemonIndex(pokemonIndex - 1);
     }
   };
-
-  const handleCLickPrécedent = () => {
-    if (pokemonIndex > 0) {
-      setPokemonIndex(pokemonIndex - 1);
+  const handleClickSuivant = () => {
+    if (pokemonIndex < pokemonList.length - 1) {
+      setpokemonIndex(pokemonIndex + 1);
     }
   };
   return (
-    <>
-      <div>
-        <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-        {pokemonIndex > 0 && (
-          <button onClick={handleCLickPrécedent}>Précedent</button>
-        )}
-        {pokemonIndex < pokemonList.length - 1 && (
-          <button onClick={handleClickSuivant}>Suivant</button>
-        )}
-      </div>
-    </>
+    <div>
+      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
+      <NavBar
+        pokemonIndex={pokemonIndex}
+        suivantPoke={pokemonList.length - 1}
+        handleClickPrecedent={handleClickPrecedent}
+        handleClickSuivant={handleClickSuivant}
+      />
+    </div>
   );
 }
 
@@ -61,6 +55,6 @@ const pokemonList = [
   {
     name: "mew",
     imgSrc:
-      "https://shreepng.com/img/Inside/Celebrities/TheRock/Angry%20The%20Rock.png",
+      "https://i.pinimg.com/originals/ba/f3/a9/baf3a95ad439d4b4cdc81a98c217a48d.png",
   },
 ];
