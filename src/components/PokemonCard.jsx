@@ -12,7 +12,7 @@ const PokemonCard = ({ pokemon }) => {
           <p>???</p>
         )}
       </figure>
-      <figcaption>Bulbasaur</figcaption>
+      <figcaption></figcaption>
     </div>
   );
 };
